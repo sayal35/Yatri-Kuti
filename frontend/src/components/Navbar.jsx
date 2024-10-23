@@ -1,11 +1,10 @@
 import React from 'react';
-import { FaPlus } from 'react-icons/fa';
+import { FaPlus, FaSearch, FaHome, FaCity, FaFire, FaTree, FaBed, FaShip, FaWarehouse } from 'react-icons/fa'; // Import necessary icons
 
 function Navbar() {
-    const navItems=(
-        <>
-        
-        <li>
+  const navItems = (
+    <>
+      <li>
         <a className="flex items-center bg-black text-white px-4 py-2 rounded-md hover:bg-slate-800 duration-300">
           <span className="mr-2 bg-white p-1 rounded-md">
             <FaPlus className="text-black" />
@@ -15,86 +14,167 @@ function Navbar() {
       </li>
       <li><a>Home</a></li>
       <li><a>Contact Us</a></li>
-      <li><a>About</a></li></>
-    )
+      <li><a>About</a></li>
+    </>
+  );
+
+  const searchBar = (
+    <div className="mt-6 flex items-center justify-center">
+      <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-white shadow-md w-full max-w-4xl space-x-4">
+        {/* Where */}
+        <div className="flex flex-col border-r pr-4">
+          <span className="text-sm font-semibold">Where</span>
+          <input
+            type="text"
+            placeholder="Search destinations"
+            className="outline-none text-gray-600 text-sm"
+          />
+        </div>
+
+        {/* Check-in */}
+        <div className="flex flex-col border-r pr-4">
+          <span className="text-sm font-semibold">Check in</span>
+          <input
+            type="text"
+            placeholder="Add dates"
+            className="outline-none text-gray-600 text-sm"
+          />
+        </div>
+
+        {/* Check-out */}
+        <div className="flex flex-col border-r pr-4">
+          <span className="text-sm font-semibold">Check out</span>
+          <input
+            type="text"
+            placeholder="Add dates"
+            className="outline-none text-gray-600 text-sm"
+          />
+        </div>
+
+        {/* Guests */}
+        <div className="flex flex-col">
+          <span className="text-sm font-semibold">Who</span>
+          <input
+            type="text"
+            placeholder="Add guests"
+            className="outline-none text-gray-600 text-sm"
+          />
+        </div>
+
+        {/* Search button */}
+        <div className="pl-4">
+          <button className="bg-black text-white rounded-full p-2">
+            <FaSearch />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  // Icon-based Navigation
+  const iconNavBar = (
+    <div className="flex items-center justify-center space-x-8 py-4 overflow-x-auto border-t border-gray-200">
+      <div className="flex flex-col items-center cursor-pointer">
+        <FaHome className="h-6 w-6 text-gray-700" />
+        <span className="text-sm text-gray-700">Rooms</span>
+      </div>
+      <div className="flex flex-col items-center cursor-pointer">
+        <FaCity className="h-6 w-6 text-gray-700" />
+        <span className="text-sm text-gray-700">Top cities</span>
+      </div>
+      <div className="flex flex-col items-center cursor-pointer">
+        <FaFire className="h-6 w-6 text-gray-700" />
+        <span className="text-sm text-gray-700">Trending</span>
+      </div>
+      <div className="flex flex-col items-center cursor-pointer">
+        <FaTree className="h-6 w-6 text-gray-700" />
+        <span className="text-sm text-gray-700">Lake</span>
+      </div>
+      <div className="flex flex-col items-center cursor-pointer">
+        <FaBed className="h-6 w-6 text-gray-700" />
+        <span className="text-sm text-gray-700">Cabins</span>
+      </div>
+      <div className="flex flex-col items-center cursor-pointer">
+        <FaShip className="h-6 w-6 text-gray-700" />
+        <span className="text-sm text-gray-700">Boats</span>
+      </div>
+      <div className="flex flex-col items-center cursor-pointer">
+        <FaWarehouse className="h-6 w-6 text-gray-700" />
+        <span className="text-sm text-gray-700">Barns</span>
+      </div>
+    </div>
+  );
+
   return (
     <>
-    <div className="max-w-screen-2xl container mx-auto md:px-20 px-4">
-    <div className="navbar bg-base-100">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4 6h16M4 12h8m-8 6h16" />
-        </svg>
+      <div className="max-w-screen-2xl container md:px-20 px-4">
+        <div className="navbar bg-base-100">
+          <div className="navbar-start">
+            <div className="dropdown">
+              <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                {navItems}
+              </ul>
+            </div>
+            <a className="text-2xl font-bold cursor-pointer">Yatri Kuti</a>
+          </div>
+          <div className="navbar-end space-x-3">
+            <div className="navbar-center hidden lg:flex">
+              <ul className="menu menu-horizontal px-1">{navItems}</ul>
+            </div>
+            
+            <label className="swap swap-rotate">
+              <input type="checkbox" className="theme-controller" value="synthwave" />
+              <svg
+                className="swap-off h-8 w-8 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
+                <path
+                  d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"
+                />
+              </svg>
+
+              <svg
+                className="swap-on h-8 w-8 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
+                <path
+                  d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"
+                />
+              </svg>
+            </label>
+
+            <a className="bg-black text-white px-2 py-3 rounded-md hover:bg-slate-800 duration-300 cursor-pointer">Login</a>
+            <a className="bg-black text-white px-2 py-3 rounded-md hover:bg-slate-800 duration-300 cursor-pointer inline-block whitespace-nowrap">
+              Sign Up
+            </a>
+          </div>
+        </div>
+
+        {/* Search Bar */}
+        {searchBar}
+
+        {/* Icon-based Navigation Bar */}
+        {iconNavBar}
       </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        {navItems}
-      </ul>
-    </div>
-    <a className=" text-2xl font-bold cursor-pointer">Yatri Kuti</a>
-  </div>
-  <div className="navbar-end space-x-3">
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      {navItems}
-    </ul>
-  </div>
-  <div className="hidden md:block"><label className="input input-bordered flex items-center gap-2">
-  <input type="text" className="grow" placeholder="Search" />
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 16 16"
-    fill="currentColor"
-    className="h-4 w-4 opacity-70">
-    <path
-      fillRule="evenodd"
-      d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-      clipRule="evenodd" />
-  </svg>
-</label></div>
-<label className="swap swap-rotate">
-  {/* this hidden checkbox controls the state */}
-  <input type="checkbox" className="theme-controller" value="synthwave" />
-
-  {/* sun icon */}
-  <svg
-    className="swap-off h-8 w-8 fill-current"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24">
-    <path
-      d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
-  </svg>
-
-  {/* moon icon */}
-  <svg
-    className="swap-on h-8 w-8 fill-current"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24">
-    <path
-      d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
-  </svg>
-</label>
-  <div>
-    <a className="bg-black text-white px-2 py-3 rounded-md hover:bg-slate-800 duration-300 cursor-pointer">Login</a>
-  </div>
-  
-</div>
-</div>
-</div>
     </>
   );
 }
 
-export default Navbar
+export default Navbar;
